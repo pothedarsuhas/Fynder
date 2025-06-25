@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solution Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .icon {
+    font-size: 1.1em;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-light shadow-sm mb-0 fixed-top">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <a href="javascript:history.back()" class="back-arrow me-2">&#8592;</a>
+                <span class="navbar-brand fw-bold ms-1" style="font-size: 1.5rem; letter-spacing: 1px; color: #1976d2;">Fynder</span>
+            </div>
+            <div class="d-flex align-items-center ms-auto">
+                <span class="me-3">Welcome, {{ session.get('username', 'User') }}</span>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary btn-sm me-2">Dashboard</a>
+                <a href="/logout" class="btn btn-outline-danger btn-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+<div class="container mt-5">
+    <br>
+    <br>
+    <div class="card mx-auto mb-4" style="max-width:600px;">
+        <div class="card-header bg-primary text-white">
+            Solution Details
+        </div>
+        
+        <div class="card-body">
+            <div class="card mb-3 solution-card">
+    <div class="card-body">
+        <p class="card-user">Username: {{ solution[2] }}</p>
+        <p class="card-category">Category: {{ solution[1] }}</p>
+        <p class="card-text">
+            Description:
+            <span>
+                {{ solution[0][:100] ~ '...' if solution[0]|length > 100 else solution[0] }}
+            </span>
+        </p>
+        <div class="mt-2 d-flex gap-2 flex-wrap">
+            {# 
+            <button class="btn btn-outline-primary btn-sm star-btn" data-solution-id="{{ solution.id }}" title="Star">
+                <span class="icon">&#9733;</span> Star
+            </button>
+            <button class="btn btn-outline-success btn-sm like-btn" data-solution-id="{{ solution.id }}" title="Like">
+                <span class="icon">&#128077;</span> Like
+            </button>
+            #}
+            <button class="btn btn-outline-secondary btn-sm contact-btn" data-idx=""> 
+                <span class="icon">&#9993;</span> Contact
+            </button>
+            <a href="{{ url_for('view_relevant_problems', solution_id=solution[3]) }}" class="btn btn-outline-info btn-sm contact-btn">
+            <span class="icon">&#128269;</span> Show Relevant Problems
+            </a>
+        </div>
+    </div>
+</div>
+            <hr>
+            <div class="contact-details" id="contact-details" style="display:none;">
+            <p><strong>Email:</strong> {{ solution[6] }}</p>
+            <p><strong>Phone:</strong> {{ solution[5] }}</p>
+
+
+        </div>
+    </div>
+</div>
+<script>
+document.querySelectorAll('.contact-btn').forEach(function(btn) {
+    btn.onclick = function() {
+        var idx = btn.getAttribute('data-idx');
+        var details = document.getElementById('contact-details' + idx);
+        if (details.style.display === 'none' || details.style.display === '') {
+            details.style.display = 'block';
+        } else {
+            details.style.display = 'none';
+        }
+        btn.style.display = 'none';
+    };
+});
+document.querySelectorAll('.star-btn').forEach(function(btn) {
+    btn.onclick = function() {
+        this.classList.toggle('btn-warning');
+        this.classList.toggle('btn-outline-warning');
+        //Send star action to backend
+        fetch('/view-solutions/' + btn.getAttribute('data-solution-id') + '/star', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ starred: this.classList.contains('btn-warning') })
+        });
+    };
+});
+document.querySelectorAll('.like-btn').forEach(function(btn) {
+    btn.onclick = function() {
+        this.classList.toggle('btn-success');
+        this.classList.toggle('btn-outline-success');
+        // Send like action to backend
+        fetch('/view-solutions/' + btn.getAttribute('data-solution-id') + '/like', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ liked: this.classList.contains('btn-success') })
+        });
+    };
+});
+</script>
+</body>
+</html>

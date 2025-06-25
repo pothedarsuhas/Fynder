@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relevant Problems</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .problem-card {
+            transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+            cursor: pointer;
+        }
+        .problem-card:hover {
+            box-shadow: 0 4px 24px rgba(25, 118, 210, 0.15), 0 1.5px 6px rgba(0,0,0,0.08);
+            border-color: #1976d2;
+            background-color: #f0f7ff;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-light shadow-sm mb-0 fixed-top">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <a href="javascript:history.back()" class="back-arrow me-2">&#8592;</a>
+                <span class="navbar-brand fw-bold ms-1" style="font-size: 1.5rem; letter-spacing: 1px; color: #1976d2;">Fynder</span>
+            </div>
+            <div class="d-flex align-items-center ms-auto">
+                <span class="me-3">Welcome, {{ session.get('username', 'User') }}</span>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary btn-sm me-2">Dashboard</a>
+                <a href="/logout" class="btn btn-outline-danger btn-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 80px;">
+        <h2 class="mb-4 text-center">Solution Details</h2>
+        <!-- Display the solution details -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <p class="mb-1"><strong>Category:</strong> {{ solution.category }}</p>
+                <p class="card-text"><strong>Description:</strong> {{ solution.description }}</p>
+                <p class="mb-1 text-muted"><strong>Posted by:</strong> {{ solution.username }}</p>
+            </div>
+        </div>
+        <br>
+        <h2 class="mb-4 text-center">Relevant Problems</h2>
+        <div class="row">
+            {% if problems and problems|length > 0 %}
+                {% for problem in problems %}
+                <div class="col-12 mb-4">
+                    <a href="{{ url_for('view_single_problem', problem_id=problem.id) }}" class="text-decoration-none">
+                    <div class="card problem-card">
+                        <div class="card-body">
+                            <p class="mb-1"><strong>Category:</strong> {{ problem.category }}</p>
+                            <p class="card-text"><strong>Description:</strong> {{ problem.description }}</p>
+                            <p class="mb-2 text-muted"><strong>Posted by:</strong> {{ problem.username }}</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12">
+                    <div class="alert alert-info text-center">No problems are found.</div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>

@@ -1,0 +1,85 @@
+/* Floating Feedback Button and Chatbox Styles */
+#feedback-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 1050;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 28px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    transition: background 0.2s;
+}
+#feedback-btn:hover {
+    background: #1741a6;
+}
+#feedback-chatbox {
+    position: fixed;
+    bottom: 90px;
+    right: 32px;
+    width: 340px;
+    max-width: 90vw;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    z-index: 1060;
+    display: none;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+}
+#feedback-chatbox.active {
+    display: flex;
+}
+#feedback-chatbox-header {
+    background: #2563eb;
+    color: #fff;
+    padding: 14px 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#feedback-chatbox-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+#feedback-chatbox-body {
+    padding: 18px;
+    flex: 1;
+}
+#feedback-chatbox textarea {
+    width: 100%;
+    min-height: 70px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 10px;
+    resize: vertical;
+    font-size: 1rem;
+}
+#feedback-chatbox-footer {
+    padding: 12px 18px;
+    background: #f3f4f6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+#feedback-chatbox-submit {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+#feedback-chatbox-submit:hover {
+    background: #1741a6;
+}
