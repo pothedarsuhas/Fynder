@@ -12,10 +12,7 @@ This project is a simple login page using a Python Flask backend and a Bootstrap
    ```powershell
    python app.py
    ```
-3. Open your browser and go to [http://localhost:5000/login](http://localhost:5000/login)
 
-## Demo Credentials
-- Username: `admin`
-- Password: `password`
+
 
 > **Note:** This is a demonstration only. For production, use secure authentication and session management.
