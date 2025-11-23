@@ -20,7 +20,7 @@ Think of it as a two-way discovery tool for problem-solvers, innovators, builder
 
 ## Currently this website is down
 
-➡️ **Register & login here:** [https://lnkd.in/ghDA_z4b](https://lnkd.in/ghDA_z4b)
+➡️ **Register & login here:** link coming soon
 
 There’s a **‘Provide Feedback’** button inside the app — I’d love to hear your thoughts. Any feedback, ideas are welcome.
 
