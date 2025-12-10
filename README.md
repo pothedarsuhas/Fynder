@@ -1,4 +1,7 @@
 ```markdown
+
+for a detailed explanation goto: [Linkedin Post]:["https://www.linkedin.com/posts/suhaspothedar_mvplaunch-startup-producthunt-activity-7344287126420639746-DLse?utm_source=share&utm_medium=member_desktop&rcm=ACoAABL05BkB_PRfwJPk6NI3bGX6lcoD5S9Xx3Y"] 
+
 # 🚀 Introducing Fynder — MVP is Live! 🧩
 
 After days of late nights, feedback loops, and caffeine-fueled iteration, I’m super excited to launch the MVP of **Fynder** — a platform built to connect problems with solutions 🔁 and solutions for relevant problems.
