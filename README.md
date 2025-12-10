@@ -1,6 +1,6 @@
 ```markdown
 
-for a detailed explanation goto: [Linkedin Post]:["https://www.linkedin.com/posts/suhaspothedar_mvplaunch-startup-producthunt-activity-7344287126420639746-DLse?utm_source=share&utm_medium=member_desktop&rcm=ACoAABL05BkB_PRfwJPk6NI3bGX6lcoD5S9Xx3Y"] 
+for a detailed explanation goto: [Linkedin Post]:[https://www.linkedin.com/posts/suhaspothedar_mvplaunch-startup-producthunt-activity-7344287126420639746-DLse?utm_source=share&utm_medium=member_desktop&rcm=ACoAABL05BkB_PRfwJPk6NI3bGX6lcoD5S9Xx3Y] 
 
 # 🚀 Introducing Fynder — MVP is Live! 🧩
 
